@@ -1,5 +1,5 @@
 import cv2 as cv
-
+import numpy as np
 
 def ORB_Feature(img1):
     # 初始化ORB
@@ -7,10 +7,28 @@ def ORB_Feature(img1):
 
     # 寻找关键点
     kp1 = orb.detect(img1)
+    print(kp1)
+    points2f = cv.KeyPoint_convert(kp1)
+    print(points2f)
+    
+    temp=[[1.00000,2.00000]]                  ###########我在这里加入了手动特征点
+    temp=np.array(temp)
+    points2f=np.append(points2f,temp,axis=0)
+    print(points2f)
+    kp1 = cv.KeyPoint_convert(points2f)
+
+    ##################################################
+    #作弊  增加kp ：kp=cv2.KeyPoint(x=1,y=2,size=3)
+    #              print(kp)
+    ###################################################
+
+    #              print(kp)
+   # kp2=kp1+kp
 
 
     # 计算描述符
     kp1, des1 = orb.compute(img1, kp1)
+
 
 
     # 画出关键点
@@ -67,9 +85,11 @@ def ORB_Feature(img1):
 
 
 
-image1 = cv.imread('./images/zidane.jpg')
-image2 = cv.imread('./images/2.png')
-out = ORB_Feature(image1)
-cv.imshow("Match Result", out)
-cv.imwrite('./images/outzidane.png',out)
+image1 = cv.imread('./images/flow3.png')
+#image2 = cv.imread('./images/V894R.png')
+outL = ORB_Feature(image1)
+#outR=ORB_Feature(image2)
+cv.imshow("Match ResultL", outL)
+#cv.imshow("Match ResultR", outR)
+#cv.imwrite('./images/outzidane.png',out)
 cv.waitKey(0)

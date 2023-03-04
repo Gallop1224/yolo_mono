@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GMS-Feature-Matcher" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/TheFastBilateralSolver" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/image_feature_extraction_and_matching" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/yolov5-pytorch" vcs="Git" />
   </component>
 </project>

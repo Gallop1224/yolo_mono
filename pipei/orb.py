@@ -3,7 +3,7 @@ import cv2 as cv
 
 def ORB_Feature(img1, img2):
     # 初始化ORB
-    orb = cv.ORB_create()
+    orb = cv.ORB_create(1000)
 
     # 寻找关键点
     kp1 = orb.detect(img1)
@@ -16,10 +16,11 @@ def ORB_Feature(img1, img2):
     # 画出关键点
     outimg1 = cv.drawKeypoints(img1, keypoints=kp1, outImage=None)
     outimg2 = cv.drawKeypoints(img2, keypoints=kp2, outImage=None)
-
-    # 显示关键点
-    # import numpy as np
-    # outimg3 = np.hstack([outimg1, outimg2])
+    cv.imshow('kp',outimg1)
+    cv.waitKey(0)
+    #显示关键点
+    import numpy as np
+    outimg3 = np.hstack([outimg1, outimg2])
     # cv.imshow("Key Points", outimg3)
     # cv.waitKey(0)
 
@@ -47,16 +48,16 @@ def ORB_Feature(img1, img2):
     for x in matches:
         if x.distance <= max(2 * min_distance, 30):
             good_match.append(x)
-
+    print(good_match)
     # 绘制匹配结果
-    #draw_match(img1, img2, kp1, kp2, good_match)
+    draw_match(img1, img2, kp1, kp2, good_match)
     #print(good_match)
-    draw_match(img1, img2, kp1, kp2, matches)
+    # draw_match(img1, img2, kp1, kp2, matches)
 
 def draw_match(img1, img2, kp1, kp2, match):
     outimage = cv.drawMatches(img1, kp1, img2, kp2, match, outImg=None)
     cv.imshow("Match Result", outimage)
-    cv.imwrite('./images/out.png',outimage)
+    #cv.imwrite('./images/orb_detec_no_select.png',outimage)
     cv.waitKey(0)
 
 
@@ -68,6 +69,7 @@ def draw_match(img1, img2, kp1, kp2, match):
 
 
 
-image1 = cv.imread('./images/1.png')
-image2 = cv.imread('./images/2.png')
+image1 = cv.imread('./images/V894L.png')
+image2 = cv.imread('./images/V894R.png')
+
 ORB_Feature(image1, image2)
