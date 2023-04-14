@@ -3,7 +3,7 @@ import cv2 as cv
 
 def ORB_Feature(img1, img2):
     # 初始化ORB
-    orb = cv.ORB_create(1000)
+    orb = cv.ORB_create(100)
 
     # 寻找关键点
     kp1 = orb.detect(img1)
@@ -69,7 +69,7 @@ def draw_match(img1, img2, kp1, kp2, match):
 
 
 
-image1 = cv.imread('./images/V894L.png')
-image2 = cv.imread('./images/V894R.png')
+image1 = cv.imread('./images/iphone1.jpg')
+image2 = cv.imread('./images/iphone2.jpg')
 
 ORB_Feature(image1, image2)

@@ -84,6 +84,7 @@ def ORB_Feature(img1, n):
     # # 绘制匹配结果
     # draw_match(img1, img2, kp1, kp2, good_match)
     # print(good_match)
+
 bigimg=cv2.imread('img/bigr.png')
 start_orb=time.time()
 outimg=ORB_Feature(bigimg, 5000)

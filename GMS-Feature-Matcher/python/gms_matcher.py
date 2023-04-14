@@ -322,7 +322,7 @@ class GmsMatcher:
             for i in range(len(self.gms_matches)):
                 left = self.keypoints_image1[self.gms_matches[i].queryIdx].pt
                 right = tuple(sum(x) for x in zip(self.keypoints_image2[self.gms_matches[i].trainIdx].pt, (src1.shape[1], 0)))
-                cv2.line(output, tuple(map(int, left)), tuple(map(int, right)), (0, 255, 255))
+                cv2.line(output, tuple(map(int, left)), tuple(map(int, right)), (0, 255, 0))
 
         elif drawing_type == DrawingType.LINES_AND_POINTS:
             for i in range(len(self.gms_matches)):
@@ -364,8 +364,8 @@ class GmsMatcher:
 
 
 if __name__ == '__main__':
-    img1 = cv2.imread("../data/V894L.png")
-    img2 = cv2.imread("../data/V894R.PNG")
+    img1 = cv2.imread("../data/iphone1.jpg")
+    img2 = cv2.imread("../data/iphone2.jpg")
 
     orb = cv2.ORB_create(5000)
     orb.setFastThreshold(0)
@@ -377,4 +377,4 @@ if __name__ == '__main__':
 
     matches = gms.compute_matches(img1, img2)
     # gms.draw_matches(img1, img2, DrawingType.ONLY_LINES)
-    gms.draw_matches(img1, img2, DrawingType.LINES_AND_POINTS)
+    gms.draw_matches(img1, img2, DrawingType.ONLY_LINES)

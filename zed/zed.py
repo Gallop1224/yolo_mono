@@ -57,10 +57,10 @@ def image_capture():
                 break
             if key & 0xFF == ord('s'):  # 图像保存
                 savePath = os.path.join("./img_flower", "V{:0>3d}.png".format(i))  # 注意根目录是否存在"./images"文件夹
-                cv2.imwrite(savePath, view)
-                savePathL = os.path.join("./img_flower", "V{:0>3d}l.png".format(i))
+                # cv2.imwrite(savePath, view)
+                savePathL = os.path.join("./smoke2", "V{:0>3d}l.png".format(i))
                 cv2.imwrite(savePathL, imgL)
-                savePathR = os.path.join("./img_flower", "V{:0>3d}R.png".format(i))
+                savePathR = os.path.join("./smoke2", "V{:0>3d}R.png".format(i))
                 cv2.imwrite(savePathR, imgR)
             i = i + 1
     zed.close()

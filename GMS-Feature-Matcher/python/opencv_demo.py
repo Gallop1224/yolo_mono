@@ -87,7 +87,7 @@ if __name__ == '__main__':
     print('ORB takes', orb_end - orb_start, 'seconds')
     print('GMS takes', end-start, 'seconds')
 
-    output = draw_matches(img1, img2, kp1, kp2, matches_gms, DrawingType.COLOR_CODED_POINTS_X)
+    output = draw_matches(img1, img2, kp1, kp2, matches_gms, DrawingType.LINES_AND_POINTS)
 
     cv2.imshow("show", output)
     cv2.waitKey(0)

@@ -85,11 +85,11 @@ def ORB_Feature(img1):
 
 
 
-image1 = cv.imread('./images/flow3.png')
+image1 = cv.imread('./images/bus.png')
 #image2 = cv.imread('./images/V894R.png')
 outL = ORB_Feature(image1)
 #outR=ORB_Feature(image2)
 cv.imshow("Match ResultL", outL)
 #cv.imshow("Match ResultR", outR)
-#cv.imwrite('./images/outzidane.png',out)
+cv.imwrite('./images/bus.png',outL)
 cv.waitKey(0)
